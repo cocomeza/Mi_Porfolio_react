@@ -10,6 +10,7 @@ const skillImages = {
   "Node.js": "/Node.js.png",
   Python: "/Python.png",
   PHP: "/php.png",
+  Java: "/Java.png",
   MongoDB: "/mongoDB.png",
   MySQL: "/mysql.png",
   WordPress: "/wordpress.jpg",
@@ -19,7 +20,7 @@ const skillImages = {
 };
 
 export default function Skills() {
-  const skills = ["HTML", "Css", "JavaScript","React", "Bootstrap", "Node.js", "Python", "PHP", "MongoDB", "MySQL", "WordPress", "GitHub","Netlify","Postman"];
+  const skills = ["HTML", "Css", "JavaScript","React", "Bootstrap", "Node.js", "Python", "PHP", "Java", "MongoDB", "MySQL", "WordPress", "GitHub","Netlify","Postman"];
   return (
     <section id="skills" className="skills-section">
       <div className="container">
