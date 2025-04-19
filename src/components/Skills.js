@@ -10,7 +10,7 @@ const skillImages = {
   "Node.js": "/Node.js.png",
   Python: "/Python.png",
   PHP: "/php.png",
-  Java: "/Java.png",
+  Java: "/java-logo.webp",
   MongoDB: "/mongoDB.png",
   MySQL: "/mysql.png",
   WordPress: "/wordpress.jpg",
