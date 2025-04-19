@@ -25,8 +25,8 @@ const skillImages = {
   Cypress: "/Cypress.jpg",
   Selenium: "/Selenium.png",
   Scrum: "/Scrum.jpg",
-  Jira: "/Jira.png",
-  Trello: "/Trello.png",
+  Jira: "/Jira.jpg",
+  Trello: "/Trello.jpg",
 };
 
 export default function Skills() {
