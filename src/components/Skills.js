@@ -24,7 +24,7 @@ const skillImages = {
   Playwright: "/Playwright.jpg",
   Cypress: "/Cypress.jpg",
   Selenium: "/Selenium.png",
-  Scrum: "/Scrum.png",
+  Scrum: "/Scrum.jpg",
   Jira: "/Jira.png",
   Trello: "/Trello.png",
 };
