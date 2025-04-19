@@ -13,10 +13,10 @@ const skillImages = {
   Java: "/java-logo.webp",
   MongoDB: "/mongoDB.png",
   MySQL: "/mysql.png",
-  PostgreSQL : "/PostgreSQL.png",
+  PostgreSQL : "/PostgreSQL.jpg",
   Docker: "/Docker.jpg",
   WordPress: "/wordpress.jpg",
-  Canva: "/Canva.png",
+  Canva: "/Canva.jpg",
   GitHub: "/github.png",
   Netlify: "/Netlify.png",
   Postman: "/postman.jpg",
@@ -24,6 +24,9 @@ const skillImages = {
   Playwright: "/Playwright.jpg",
   Cypress: "/Cypress.jpg",
   Selenium: "/Selenium.png",
+  Scrum: "/Scrum.png",
+  Jira: "/Jira.png",
+  Trello: "/Trello.png",
 };
 
 export default function Skills() {
