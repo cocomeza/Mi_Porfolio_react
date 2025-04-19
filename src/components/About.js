@@ -14,17 +14,6 @@ const About = () => {
           Mi misión es transformar ideas en visuales impactantes y efectivos, creando experiencias únicas que conecten con el público y generen resultados exitosos.
         </p>
       </section>
-      <section className="services">
-        <h2>Servicios</h2>
-        <div className="service">
-          <h3>Diseño Gráfico</h3>
-          <p>Transformo ideas en visuales impactantes y efectivos.</p>
-        </div>
-        <div className="service">
-          <h3>Desarrollo Web</h3>
-          <p>Construyo sitios web modernos y funcionales.</p>
-        </div>
-      </section>
       <section className="contact">
         <h2>Contacto</h2>
         <p>¡No dudes en contactarme!</p>
