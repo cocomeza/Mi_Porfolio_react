@@ -3,10 +3,10 @@ import "./Projects.css";
 
 const projects = [
   {
-  title: "Sitio Web Iglesia Puerta de Salvación",
-  subtitle: "HTML5, CSS3 (Bootstrap 5), JavaScript",
-  description: "Desarrollé y puse en producción el sitio web oficial de la Iglesia Puerta de Salvación, creando una experiencia web responsiva y moderna usando HTML5, CSS3 personalizado con Bootstrap 5 y JavaScript.",
-  link: "https://iglesiapuertadesalvacion.onrender.com",
+    title: "Sitio Web Iglesia Puerta de Salvación",
+    subtitle: "HTML5, CSS3 (Bootstrap 5), JavaScript",
+    description: "Desarrollé y puse en producción el sitio web oficial de la Iglesia Puerta de Salvación, creando una experiencia web responsiva y moderna usando HTML5, CSS3 personalizado con Bootstrap 5 y JavaScript.",
+    link: "https://iglesiapuertadesalvacion.onrender.com",
   },
   {
     title: "¡Mi Primer Proyecto Completado! año 2023",
