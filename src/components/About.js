@@ -19,8 +19,8 @@ const About = () => {
         <p>¡No dudes en contactarme!</p>
         <div className="social-icons">
           <a href="https://www.linkedin.com/in/maxi-meza" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://www.facebook.com/Maximiliano.Jesus.Meza." target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a href="https://www.instagram.com/boton.creativo.ar" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/share/1BrDede6ZW/" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.instagram.com/boton.creativo.ar?igsh=c3NhZXV0OHMwNW81" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
       </section>
     </div>
