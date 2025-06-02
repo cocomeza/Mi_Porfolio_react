@@ -2,6 +2,12 @@ import React from "react";
 import "./Projects.css"; 
 
 const projects = [
+   {
+    title: "Sitio Web huertacomunitaria",
+    subtitle: "HTML5, CSS3 (Bootstrap 5), JavaScript",
+    description: "Desarrollé y puse en producción el sitio web oficial de Huerta Comunitaria de Villa Ramallo. Pcia de Bs As , creando una experiencia web responsiva y moderna usando HTML5, CSS3 personalizado con Bootstrap 5 y JavaScript.",
+    link: "https://huertacomunitaria-vr.onrender.com",
+  },
   {
     title: "Sitio Web Iglesia Puerta de Salvación",
     subtitle: "HTML5, CSS3 (Bootstrap 5), JavaScript",
