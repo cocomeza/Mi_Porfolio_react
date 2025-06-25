@@ -15,7 +15,7 @@ const Home = () => {
       </header>
       <section className="download-cv">
         <h2>Descargar CV</h2>
-        <a href="/CV_Maximiliano_Meza.pdf" download className="download-cv-button">Descargar CV en PDF</a>
+        <a href="/Maximiliano_Meza_CV_Dev.pdf" download className="download-cv-button">Descargar CV en PDF</a>
       </section>
     </div>
   );
