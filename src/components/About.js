@@ -9,10 +9,15 @@ const About = () => {
       </header>
       <section className="about-me">
         <img src="/foto-hero.jpg" alt="Imagen de Maximiliano Meza" className="profile-pic" />
-        <p>
-          ¡Bienvenidos a mi portafolio! Soy un apasionado desarrollador web con experiencia en diseño web y desarrollo de identidades visuales.
-          Mi misión es transformar ideas en visuales impactantes y efectivos, creando experiencias únicas que conecten con el público y generen resultados exitosos.
-        </p>
+        <p>¡Hola! Soy Maximiliano Meza, desarrollador web Full Stack con conocimientos en diseño y programación para la creación de soluciones digitales.
+
+Actualmente me desempeño como freelance en BotonCreativo, un espacio donde transformo ideas en sitios web funcionales para emprendimientos y pymes. Allí diseño y desarrollo páginas web, catálogos online y contenidos visuales pensados para atraer y captar la atención.
+
+Mi enfoque combina el pensamiento creativo con el dominio técnico: trabajo con tecnologías como HTML, CSS, JavaScript y Bootstrap, adaptándome a las necesidades específicas de cada cliente.
+
+También cuento con formación como Técnico Superior en Turismo y Hotelería, lo cual me permite entender mejor al usuario final, comunicar con empatía y crear experiencias digitales más humanas.
+
+Mi misión es seguir creciendo profesionalmente mientras ayudo a otros a potenciar su presencia en línea.</p>
       </section>
       <section className="contact">
         <h2>Contacto</h2>
