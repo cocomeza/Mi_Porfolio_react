@@ -1,53 +1,144 @@
-import React from "react";
-import "./Skills.css"; 
-
-const skillImages = {
-  HTML: "/html.png",
-  Css: "/css-3.png",
-  JavaScript: "/js.png",
-  React: "/React.png",
-  Bootstrap: "/Bootstrap.png",
-  "Node.js": "/Node.js.png",
-  Python: "/Python.png",
-  PHP: "/php.png",
-  Java: "/java-logo.webp",
-  MongoDB: "/mongoDB.png",
-  MySQL: "/mysql.png",
-  PostgreSQL : "/PostgreSQL.jpg",
-  Docker: "/Docker.jpg",
-  WordPress: "/wordpress.jpg",
-  Canva: "/Canva.jpg",
-  GitHub: "/github.png",
-  Netlify: "/Netlify.png",
-  Postman: "/postman.jpg",
-  Karate: "/Karate.jpg",
-  Playwright: "/Playwright.jpg",
-  Cypress: "/Cypress.jpg",
-  Selenium: "/Selenium.png",
-  Scrum: "/Scrum.jpg",
-  Jira: "/Jira.jpg",
-  Trello: "/Trello.jpg",
-};
-
-export default function Skills() {
-  const skills = ["HTML", "Css", "JavaScript","React", "Bootstrap", "Node.js", "Python", "PHP", "Java", "MongoDB", "MySQL","PostgreSQL", "Docker", "WordPress" , "Canva" , "GitHub","Netlify","Postman","Karate","Playwright","Cypress","Selenium","Scrum","Jira","Trello"];
-  return (
-    <section id="skills" className="skills-section">
-      <div className="container">
-        <div className="text-center mb-20">
-          <h1 className="title">Habilidades y Tecnologías</h1>
-        </div>
-        <div className="skills-grid">
-          {skills.map((skill) => (
-            <div key={skill} className="skill-item">
-              <div className="skill-content">
-                <img src={skillImages[skill]} alt={skill} className="skill-image" />
-                <span className="skill-text">{skill}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+.skills-section {
+  background-color: var(--color-bg-light);
+  color: var(--color-secondary);
+  padding: 60px 20px;
+  font-family: var(--font-main);
 }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.description {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+.skills-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.skills-category {
+  margin-bottom: 24px;
+}
+
+.skills-category-title {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.skill-item {
+  width: 140px;
+  min-height: 170px;
+  background: var(--color-white);
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  cursor: pointer;
+  position: relative;
+}
+
+.skill-item:focus, .skill-item:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  transform: translateY(-6px) scale(1.04);
+  z-index: 2;
+}
+
+.skill-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 12px 0;
+  position: relative;
+}
+
+.skill-image {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 10px;
+  transition: transform 0.2s;
+}
+
+.skill-item:hover .skill-image {
+  transform: scale(1.15) rotate(-6deg);
+}
+
+.skill-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin-bottom: 4px;
+}
+
+.skill-level {
+  font-size: 0.85rem;
+  color: #888;
+  background: #f0f0f0;
+  border-radius: 8px;
+  padding: 2px 10px;
+  margin-top: 2px;
+}
+
+/* Tooltip nativo con title, pero puedes personalizar si usas una librería */
+
+@media (max-width: 900px) {
+  .skills-grid {
+    gap: 12px;
+  }
+  .skill-item {
+    width: 45vw;
+    min-width: 120px;
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-category-title {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  .skills-grid {
+    gap: 8px;
+  }
+  .skill-item {
+    width: 90vw;
+    min-width: 100px;
+    max-width: 100%;
+  }
+}
+
