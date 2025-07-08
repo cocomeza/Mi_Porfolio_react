@@ -12,7 +12,6 @@ Este es mi portafolio profesional creado con **React JS**, donde muestro informa
 - **CSS puro** (estilos modulares por componente)
 - **Heroicons** – Íconos SVG modernos
 - **Create React App** – Estructura base
-- **Testing Library** – (Configurado para testeo)
 
 ---
 
