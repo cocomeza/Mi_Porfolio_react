@@ -1,144 +1,105 @@
-.skills-section {
-  background-color: var(--color-bg-light);
-  color: var(--color-secondary);
-  padding: 60px 20px;
-  font-family: var(--font-main);
+import React from "react";
+import "./Skills.css";
+
+const categories = [
+  {
+    name: "Frontend",
+    skills: [
+      { name: "HTML", image: "/html.png" },
+      { name: "Css", image: "/css-3.png" },
+      { name: "JavaScript", image: "/js.png" },
+      { name: "React", image: "/React.png" },
+      { name: "Bootstrap", image: "/Bootstrap.png" },
+    ],
+  },
+  {
+    name: "Backend",
+    skills: [
+      { name: "Node.js", image: "/Node.js.png" },
+      { name: "Python", image: "/Python.png" },
+      { name: "PHP", image: "/php.png" },
+      { name: "Java", image: "/java-logo.webp" },
+      { name: "MongoDB", image: "/mongoDB.png" },
+      { name: "MySQL", image: "/mysql.png" },
+      { name: "PostgreSQL", image: "/PostgreSQL.jpg" },
+      { name: "Docker", image: "/Docker.jpg" },
+      { name: "WordPress", image: "/wordpress.jpg" },
+    ],
+  },
+  {
+    name: "Herramientas",
+    skills: [
+      { name: "Canva", image: "/Canva.jpg" },
+      { name: "GitHub", image: "/github.png" },
+      { name: "Netlify", image: "/Netlify.png" },
+      { name: "Postman", image: "/postman.jpg" },
+      { name: "Trello", image: "/Trello.jpg" },
+      { name: "Jira", image: "/Jira.jpg" },
+      { name: "Scrum", image: "/Scrum.jpg" },
+    ],
+  },
+  {
+    name: "Testing",
+    skills: [
+      { name: "Karate", image: "/Karate.jpg" },
+      { name: "Playwright", image: "/Playwright.jpg" },
+      { name: "Cypress", image: "/Cypress.jpg" },
+      { name: "Selenium", image: "/Selenium.png" },
+    ],
+  },
+];
+
+export default function Skills() {
+  const handleImageError = (e, skillName) => {
+    e.target.style.display = 'none';
+    const textElement = e.target.nextElementSibling;
+    if (textElement) {
+      textElement.style.fontSize = '1.2rem';
+      textElement.style.fontWeight = 'bold';
+    }
+  };
+
+  return (
+    <section id="skills" className="skills-section" aria-labelledby="skills-title">
+      <div className="container">
+        <h1 id="skills-title" className="title">Habilidades y Tecnologías</h1>
+        <div className="skills-categories" role="region" aria-label="Categorías de habilidades">
+          {categories.map((cat) => (
+            <div key={cat.name} className="skills-category">
+              <h2 className="skills-category-title" id={`category-${cat.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                {cat.name}
+              </h2>
+              <div 
+                className="skills-grid" 
+                role="list" 
+                aria-labelledby={`category-${cat.name.toLowerCase().replace(/\s+/g, '-')}`}
+              >
+                {cat.skills.map((skill) => (
+                  <div 
+                    className="skill-item" 
+                    key={skill.name} 
+                    tabIndex={0}
+                    role="listitem"
+                    aria-label={`${skill.name} - Nivel Básico`}
+                  >
+                    <div className="skill-content" title={`${skill.name} - Nivel Básico`}>
+                      <img 
+                        src={skill.image} 
+                        alt={`Logo de ${skill.name}`} 
+                        className="skill-image"
+                        onError={(e) => handleImageError(e, skill.name)}
+                        loading="lazy"
+                      />
+                      <span className="skill-text">{skill.name}</span>
+                      <span className="skill-level" aria-label={`Nivel: Básico`}>Básico</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.mb-20 {
-  margin-bottom: 20px;
-}
-
-.title {
-  font-size: 2rem;
-  font-weight: 500;
-  margin-bottom: 20px;
-  color: var(--color-primary);
-  text-align: center;
-}
-
-.description {
-  font-size: 1.25rem;
-  line-height: 1.5;
-  margin-bottom: 40px;
-}
-
-.skills-categories {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.skills-category {
-  margin-bottom: 24px;
-}
-
-.skills-category-title {
-  font-size: 1.5rem;
-  color: var(--color-primary);
-  margin-bottom: 16px;
-  text-align: center;
-}
-
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 20px;
-}
-
-.skill-item {
-  width: 140px;
-  min-height: 170px;
-  background: var(--color-white);
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: box-shadow 0.2s, transform 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  cursor: pointer;
-  position: relative;
-}
-
-.skill-item:focus, .skill-item:hover {
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  transform: translateY(-6px) scale(1.04);
-  z-index: 2;
-}
-
-.skill-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 12px 0;
-  position: relative;
-}
-
-.skill-image {
-  width: 64px;
-  height: 64px;
-  margin-bottom: 10px;
-  transition: transform 0.2s;
-}
-
-.skill-item:hover .skill-image {
-  transform: scale(1.15) rotate(-6deg);
-}
-
-.skill-text {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--color-secondary);
-  margin-bottom: 4px;
-}
-
-.skill-level {
-  font-size: 0.85rem;
-  color: #888;
-  background: #f0f0f0;
-  border-radius: 8px;
-  padding: 2px 10px;
-  margin-top: 2px;
-}
-
-/* Tooltip nativo con title, pero puedes personalizar si usas una librería */
-
-@media (max-width: 900px) {
-  .skills-grid {
-    gap: 12px;
-  }
-  .skill-item {
-    width: 45vw;
-    min-width: 120px;
-    max-width: 180px;
-  }
-}
-
-@media (max-width: 600px) {
-  .skills-category-title {
-    font-size: 1.1rem;
-    text-align: center;
-  }
-  .skills-grid {
-    gap: 8px;
-  }
-  .skill-item {
-    width: 90vw;
-    min-width: 100px;
-    max-width: 100%;
-  }
-}
-

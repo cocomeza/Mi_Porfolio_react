@@ -48,7 +48,7 @@ const About = () => {
           <span className="about-subtitle">Conocimientos en Diseño Web con WordPress | Técnico en Turismo y Hotelería</span>
         </div>
         <div className="about-content">
-          <img src="/foto-hero.jpg" alt="Imagen de Maximiliano Meza" className="about-profile-pic" />
+          <img src="/foto-hero.jpeg" alt="Imagen mia" className="about-profile-pic" />
           <div className="about-text">
             <p>¡Hola! Soy Maximiliano Meza, desarrollador web Full Stack con conocimientos en diseño y programación para la creación de soluciones digitales.</p>
             <p>Actualmente me desempeño como freelance en BotonCreativo, un espacio donde transformo ideas en sitios web funcionales para emprendimientos y pymes. Allí diseño y desarrollo páginas web, catálogos online y contenidos visuales pensados para atraer y captar la atención.</p>
