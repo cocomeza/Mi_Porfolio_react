@@ -197,6 +197,12 @@
   }
 }
 
+@media (max-width: 900px) {
+  .cta-button {
+    display: none !important;
+  }
+}
+
 /* Focus styles para accesibilidad */
 .nav-link:focus,
 .cta-button:focus,
