@@ -32,11 +32,13 @@ const socialLinks = [
 ];
 
 const softSkills = [
-  'Comunicación efectiva',
-  'Empatía',
+  'Comunicación clara y cercana',
   'Pensamiento creativo',
-  'Trabajo en equipo',
+  'Empatía y escucha activa',
   'Adaptabilidad',
+  'Trabajo en equipo',
+  'Gestión integral de contenido',
+  'Optimización visual y funcional',
 ];
 
 const About = () => {
@@ -44,16 +46,17 @@ const About = () => {
     <div className="about-section">
       <div className="about-card">
         <div className="about-header">
-          <h2 className="about-title">Desarrollador Web Full Stack</h2>
-          <span className="about-subtitle">Conocimientos en Diseño Web con WordPress | Técnico en Turismo y Hotelería</span>
+          <h2 className="about-title">Desarrollador Web Full Stack Freelance</h2>
+          <span className="about-subtitle"> Community Manager | Tester QA en formación</span>
         </div>
         <div className="about-content">
           <img src="/foto-hero.jpeg" alt="Imagen mia" className="about-profile-pic" />
           <div className="about-text">
-            <p>¡Hola! Soy Maximiliano Meza, desarrollador web Full Stack con conocimientos en diseño y programación para la creación de soluciones digitales.</p>
-            <p>Actualmente me desempeño como freelance en BotonCreativo, un espacio donde transformo ideas en sitios web funcionales para emprendimientos y pymes. Allí diseño y desarrollo páginas web, catálogos online y contenidos visuales pensados para atraer y captar la atención.</p>
-            <p>Mi enfoque combina el pensamiento creativo con el dominio técnico: trabajo con tecnologías como HTML, CSS, JavaScript y Bootstrap, adaptándome a las necesidades específicas de cada cliente.</p>
-            <p>Tengo formación como Técnico Superior en Turismo y Hotelería, lo cual me permite entender mejor al usuario final, comunicar con empatía y crear experiencias digitales más humanas. Mi misión es seguir creciendo profesionalmente mientras ayudo a otros a potenciar su presencia en línea.</p>
+            <p>¡Hola! Soy Maximiliano Meza, desarrollador web Full Stack argentino y creador de contenido integral en Botón Creativo, mi espacio freelance donde diseño, produzco y gestiono soluciones digitales pensadas para emprendedores y pymes.</p>
+            <p>Me dedico a crear sitios web funcionales, catálogos online y contenidos visuales que conectan con la gente. Trabajo todos los días en la producción y publicación de contenido gráfico y audiovisual, adaptado a públicos no técnicos y con foco en claridad, continuidad y presencia digital efectiva.</p>
+            <p>Uso tecnologías como HTML, CSS, JavaScript, y Bootstrap , y me apoyo en herramientas gratuitas y formatos editables para que cada entrega sea práctica, profesional y fácil de actualizar.</p>
+            <p>Además, soy Técnico Superior en Turismo y Hotelería, lo que me da una mirada más humana y empática para entender al usuario final y comunicar de forma clara.</p>
+            <p>Mi objetivo es seguir creciendo como profesional, optimizando cada entrega y ayudando a otros a mejorar su presencia online con soluciones simples, bien pensadas y hechas a medida.</p>
             <ul className="about-softskills">
               {softSkills.map((skill) => (
                 <li key={skill}>{skill}</li>
@@ -81,4 +84,5 @@ const About = () => {
 };
 
 export default About;
+
 
