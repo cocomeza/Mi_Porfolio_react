@@ -47,7 +47,7 @@ const About = () => {
       <div className="about-card">
         <div className="about-header">
           <h2 className="about-title">Desarrollador Web Full Stack Freelance</h2>
-          <span className="about-subtitle"> Community Manager | Tester QA en formación</span>
+          <span className="about-subtitle"> Community Manager | Tester QA en formación| Técnico en Turismo y Hotelería</span>
         </div>
         <div className="about-content">
           <img src="/foto-hero.jpeg" alt="Imagen mia" className="about-profile-pic" />
@@ -84,5 +84,6 @@ const About = () => {
 };
 
 export default About;
+
 
 
