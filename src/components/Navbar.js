@@ -2,25 +2,6 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom"; 
 import './Navbar.css'; 
 
-// SVG Arrow Right Icon (sigue existiendo por si lo usas en otro lado)
-const ArrowRightIcon = ({ className, ...props }) => (
-  <svg 
-    className={className} 
-    fill="none" 
-    stroke="currentColor" 
-    viewBox="0 0 24 24" 
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
-    <path 
-      strokeLinecap="round" 
-      strokeLinejoin="round" 
-      strokeWidth={2} 
-      d="M13 7l5 5m0 0l-5 5m5-5H6" 
-    />
-  </svg>
-);
-
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -108,4 +89,5 @@ export default function Navbar() {
     </header>
   );
 }
+
 
