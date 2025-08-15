@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom"; 
 import './Navbar.css'; 
 
-// SVG Arrow Right Icon
+// SVG Arrow Right Icon (sigue existiendo por si lo usas en otro lado)
 const ArrowRightIcon = ({ className, ...props }) => (
   <svg 
     className={className} 
@@ -104,17 +104,8 @@ export default function Navbar() {
             Contacto
           </Link>
         </nav>
-        
-        <Link 
-          to="/contact" 
-          className="cta-button"
-          onClick={closeMenu}
-          aria-label="Ir a la página de contacto"
-        >
-          ¡Contáctame!
-          <ArrowRightIcon className="icon" aria-hidden="true" />
-        </Link>
       </div>
     </header>
   );
 }
+
