@@ -46,22 +46,44 @@ const About = () => {
     <div className="about-section">
       <div className="about-card">
         <div className="about-header">
-          <h2 className="about-title">Desarrollador Web Full Stack Freelance</h2>
-          <span className="about-subtitle"> Community Manager | Tester QA en formación| Técnico en Turismo y Hotelería</span>
+          <h2 className="about-title">Desarrollador Full Stack & QA Tester</h2>
+          <span className="about-subtitle">Especialista en Soluciones Web Escalables | Community Manager | Técnico en Turismo y Hotelería</span>
         </div>
         <div className="about-content">
-          <img src="/foto-hero.jpeg" alt="Imagen mia" className="about-profile-pic" />
+          <img src="/foto-hero.jpeg" alt="Maximiliano Meza - Desarrollador Full Stack" className="about-profile-pic" />
           <div className="about-text">
-            <p>¡Hola! Soy Maximiliano Meza, desarrollador web Full Stack argentino y creador de contenido integral en Botón Creativo, mi espacio freelance donde diseño, produzco y gestiono soluciones digitales pensadas para emprendedores y pymes.</p>
-            <p>Me dedico a crear sitios web funcionales, catálogos online y contenidos visuales que conectan con la gente. Trabajo todos los días en la producción y publicación de contenido gráfico y audiovisual, adaptado a públicos no técnicos y con foco en claridad, continuidad y presencia digital efectiva.</p>
-            <p>Uso tecnologías como HTML, CSS, JavaScript, y Bootstrap , y me apoyo en herramientas gratuitas y formatos editables para que cada entrega sea práctica, profesional y fácil de actualizar.</p>
-            <p>Además, soy Técnico Superior en Turismo y Hotelería, lo que me da una mirada más humana y empática para entender al usuario final y comunicar de forma clara.</p>
-            <p>Mi objetivo es seguir creciendo como profesional, optimizando cada entrega y ayudando a otros a mejorar su presencia online con soluciones simples, bien pensadas y hechas a medida.</p>
-            <ul className="about-softskills">
-              {softSkills.map((skill) => (
-                <li key={skill}>{skill}</li>
-              ))}
-            </ul>
+            <div className="about-intro">
+              <p><strong>¡Hola! Soy Maximiliano Meza</strong>, desarrollador web Full Stack argentino con más de 2 años de experiencia creando soluciones digitales que impulsan el crecimiento empresarial.</p>
+            </div>
+            
+            <div className="about-experience">
+              <h3>Mi Experiencia</h3>
+              <p>Como fundador de <strong>Botón Creativo</strong>, he desarrollado y puesto en producción múltiples sitios web para organizaciones locales, combinando tecnologías modernas con un enfoque centrado en el usuario. Mi experiencia abarca desde el desarrollo frontend con React y JavaScript hasta la implementación de APIs robustas con Node.js y bases de datos.</p>
+            </div>
+
+            <div className="about-approach">
+              <h3>Mi Enfoque</h3>
+              <p>Me especializo en crear <strong>experiencias web responsivas y escalables</strong> utilizando las mejores prácticas de desarrollo. Mi formación en Turismo y Hotelería me proporciona una perspectiva única para entender las necesidades del usuario final y crear interfaces intuitivas que generen resultados.</p>
+            </div>
+
+            <div className="about-value">
+              <h3>Valor que Aporto</h3>
+              <ul className="value-list">
+                <li><strong>Desarrollo Full Stack:</strong> Desde la concepción hasta el despliegue</li>
+                <li><strong>Testing & QA:</strong> Garantizo calidad en cada entrega</li>
+                <li><strong>Comunicación Clara:</strong> Traduzco conceptos técnicos para stakeholders</li>
+                <li><strong>Orientación a Resultados:</strong> Foco en el impacto empresarial</li>
+              </ul>
+            </div>
+
+            <div className="about-softskills-section">
+              <h3>Habilidades Blandas</h3>
+              <ul className="about-softskills">
+                {softSkills.map((skill) => (
+                  <li key={skill}>{skill}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
         <div className="about-social">

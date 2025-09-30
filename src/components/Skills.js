@@ -3,48 +3,65 @@ import "./Skills.css";
 
 const categories = [
   {
-    name: "Frontend",
+    name: "Frontend Development",
+    description: "Tecnologías para crear interfaces de usuario modernas y responsivas",
     skills: [
-      { name: "HTML", image: "/html.png" },
-      { name: "Css", image: "/css-3.png" },
-      { name: "JavaScript", image: "/js.png" },
-      { name: "React", image: "/React.png" },
-      { name: "Bootstrap", image: "/Bootstrap.png" },
+      { name: "HTML5", image: "/html.png", level: "Avanzado", experience: "2+ años" },
+      { name: "CSS3", image: "/css-3.png", level: "Avanzado", experience: "2+ años" },
+      { name: "JavaScript", image: "/js.png", level: "Intermedio", experience: "2+ años" },
+      { name: "React", image: "/React.png", level: "Intermedio", experience: "1+ año" },
+      { name: "Bootstrap", image: "/Bootstrap.png", level: "Avanzado", experience: "2+ años" },
     ],
   },
   {
-    name: "Backend",
+    name: "Backend Development",
+    description: "Desarrollo de APIs, bases de datos y arquitectura del servidor",
     skills: [
-      { name: "Node.js", image: "/Node.js.png" },
-      { name: "Python", image: "/Python.png" },
-      { name: "PHP", image: "/php.png" },
-      { name: "Java", image: "/java-logo.webp" },
-      { name: "MongoDB", image: "/mongoDB.png" },
-      { name: "MySQL", image: "/mysql.png" },
-      { name: "PostgreSQL", image: "/PostgreSQL.jpg" },
-      { name: "Docker", image: "/Docker.jpg" },
-      { name: "WordPress", image: "/wordpress.jpg" },
+      { name: "Node.js", image: "/Node.js.png", level: "Intermedio", experience: "1+ año" },
+      { name: "Python", image: "/Python.png", level: "Básico", experience: "6+ meses" },
+      { name: "PHP", image: "/php.png", level: "Básico", experience: "6+ meses" },
+      { name: "Java", image: "/java-logo.webp", level: "Básico", experience: "6+ meses" },
+      { name: "Express.js", image: "/Node.js.png", level: "Intermedio", experience: "1+ año" },
     ],
   },
   {
-    name: "Herramientas",
+    name: "Bases de Datos",
+    description: "Gestión y diseño de bases de datos relacionales y NoSQL",
     skills: [
-      { name: "Canva", image: "/Canva.jpg" },
-      { name: "GitHub", image: "/github.png" },
-      { name: "Netlify", image: "/Netlify.png" },
-      { name: "Postman", image: "/postman.jpg" },
-      { name: "Trello", image: "/Trello.jpg" },
-      { name: "Jira", image: "/Jira.jpg" },
-      { name: "Scrum", image: "/Scrum.jpg" },
+      { name: "MongoDB", image: "/mongoDB.png", level: "Intermedio", experience: "1+ año" },
+      { name: "MySQL", image: "/mysql.png", level: "Intermedio", experience: "1+ año" },
+      { name: "PostgreSQL", image: "/PostgreSQL.jpg", level: "Básico", experience: "6+ meses" },
     ],
   },
   {
-    name: "Testing",
+    name: "DevOps & Herramientas",
+    description: "Herramientas de desarrollo, despliegue y gestión de proyectos",
     skills: [
-      { name: "Karate", image: "/Karate.jpg" },
-      { name: "Playwright", image: "/Playwright.jpg" },
-      { name: "Cypress", image: "/Cypress.jpg" },
-      { name: "Selenium", image: "/Selenium.png" },
+      { name: "Git & GitHub", image: "/github.png", level: "Intermedio", experience: "2+ años" },
+      { name: "Docker", image: "/Docker.jpg", level: "Básico", experience: "6+ meses" },
+      { name: "Netlify", image: "/Netlify.png", level: "Intermedio", experience: "1+ año" },
+      { name: "Postman", image: "/postman.jpg", level: "Intermedio", experience: "1+ año" },
+      { name: "WordPress", image: "/wordpress.jpg", level: "Intermedio", experience: "1+ año" },
+    ],
+  },
+  {
+    name: "Testing & QA",
+    description: "Herramientas y metodologías para asegurar la calidad del software",
+    skills: [
+      { name: "Karate DSL", image: "/Karate.jpg", level: "Básico", experience: "En formación" },
+      { name: "Playwright", image: "/Playwright.jpg", level: "Básico", experience: "En formación" },
+      { name: "Cypress", image: "/Cypress.jpg", level: "Básico", experience: "En formación" },
+      { name: "Selenium", image: "/Selenium.png", level: "Básico", experience: "En formación" },
+    ],
+  },
+  {
+    name: "Gestión de Proyectos",
+    description: "Metodologías ágiles y herramientas de gestión de proyectos",
+    skills: [
+      { name: "Scrum", image: "/Scrum.jpg", level: "Intermedio", experience: "1+ año" },
+      { name: "Jira", image: "/Jira.jpg", level: "Básico", experience: "6+ meses" },
+      { name: "Trello", image: "/Trello.jpg", level: "Intermedio", experience: "2+ años" },
+      { name: "Canva", image: "/Canva.jpg", level: "Avanzado", experience: "2+ años" },
     ],
   },
 ];
@@ -66,9 +83,12 @@ export default function Skills() {
         <div className="skills-categories" role="region" aria-label="Categorías de habilidades">
           {categories.map((cat) => (
             <div key={cat.name} className="skills-category">
-              <h2 className="skills-category-title" id={`category-${cat.name.toLowerCase().replace(/\s+/g, '-')}`}>
-                {cat.name}
-              </h2>
+              <div className="category-header">
+                <h2 className="skills-category-title" id={`category-${cat.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                  {cat.name}
+                </h2>
+                <p className="category-description">{cat.description}</p>
+              </div>
               <div 
                 className="skills-grid" 
                 role="list" 
@@ -76,22 +96,29 @@ export default function Skills() {
               >
                 {cat.skills.map((skill) => (
                   <div 
-                    className="skill-item" 
+                    className={`skill-item skill-${skill.level.toLowerCase()}`}
                     key={skill.name} 
                     tabIndex={0}
                     role="listitem"
-                    aria-label={`${skill.name} - Nivel Básico`}
+                    aria-label={`${skill.name} - Nivel ${skill.level}`}
                   >
-                    <div className="skill-content" title={`${skill.name} - Nivel Básico`}>
-                      <img 
-                        src={skill.image} 
-                        alt={`Logo de ${skill.name}`} 
-                        className="skill-image"
-                        onError={(e) => handleImageError(e, skill.name)}
-                        loading="lazy"
-                      />
-                      <span className="skill-text">{skill.name}</span>
-                      <span className="skill-level" aria-label={`Nivel: Básico`}>Básico</span>
+                    <div className="skill-content" title={`${skill.name} - Nivel ${skill.level}`}>
+                      <div className="skill-image-container">
+                        <img 
+                          src={skill.image} 
+                          alt={`Logo de ${skill.name}`} 
+                          className="skill-image"
+                          onError={(e) => handleImageError(e, skill.name)}
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="skill-info">
+                        <span className="skill-text">{skill.name}</span>
+                        <span className={`skill-level level-${skill.level.toLowerCase()}`} aria-label={`Nivel: ${skill.level}`}>
+                          {skill.level}
+                        </span>
+                        <span className="skill-experience">{skill.experience}</span>
+                      </div>
                     </div>
                   </div>
                 ))}
