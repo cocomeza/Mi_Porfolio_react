@@ -10,15 +10,20 @@ import Freelance from './components/Freelance';
 function App() {
   return (
     <Router>
+      <a href="#main-content" className="skip-link">
+        Saltar al contenido principal
+      </a>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />  
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/freelance" element={<Freelance />} />
-      </Routes>
+      <main id="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />  
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/freelance" element={<Freelance />} />
+        </Routes>
+      </main>
     </Router>
   );
 }

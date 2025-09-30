@@ -74,13 +74,14 @@ export default function Skills() {
                 role="list" 
                 aria-labelledby={`category-${cat.name.toLowerCase().replace(/\s+/g, '-')}`}
               >
-                {cat.skills.map((skill) => (
+                {cat.skills.map((skill, skillIdx) => (
                   <div 
-                    className="skill-item" 
+                    className="skill-item animate-fadeInUp" 
                     key={skill.name} 
                     tabIndex={0}
                     role="listitem"
                     aria-label={`${skill.name} - Nivel Básico`}
+                    style={{ animationDelay: `${skillIdx * 0.05}s` }}
                   >
                     <div className="skill-content" title={`${skill.name} - Nivel Básico`}>
                       <img 

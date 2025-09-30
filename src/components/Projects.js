@@ -65,11 +65,12 @@ export default function Projects() {
         <div className="projects-grid" role="list" aria-label="Lista de proyectos">
           {projects.map((project, idx) => (
             <article 
-              className="project-item" 
+              className="project-item animate-fadeInUp" 
               key={`${project.title}-${idx}`} 
               tabIndex={0} 
               role="listitem"
               aria-labelledby={`project-title-${idx}`}
+              style={{ animationDelay: `${idx * 0.1}s` }}
             >
               <div className="project-content">
                 {project.image && (
