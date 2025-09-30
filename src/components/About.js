@@ -1,89 +1,274 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { FaLinkedin, FaFacebook, FaInstagram, FaBriefcase, FaGraduationCap, FaHeart } from 'react-icons/fa';
 import './About.css';
 
 const socialLinks = [
   {
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/maxi-meza',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-hidden="true">
-        <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/>
-      </svg>
-    ),
+    icon: <FaLinkedin />,
   },
   {
     name: 'Facebook',
     url: 'https://www.facebook.com/share/1BrDede6ZW/',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-hidden="true">
-        <path d="M22.675 0h-21.35c-.733 0-1.325.592-1.325 1.325v21.351c0 .733.592 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.312h3.587l-.467 3.622h-3.12v9.293h6.116c.729 0 1.321-.591 1.321-1.324v-21.35c0-.733-.592-1.325-1.325-1.325z"/>
-      </svg>
-    ),
+    icon: <FaFacebook />,
   },
   {
     name: 'Instagram',
     url: 'https://www.instagram.com/boton.creativo.ar?igsh=c3NhZXV0OHMwNW81',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-hidden="true">
-        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.069 1.646.069 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.069-4.85.069s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608-.058-1.266-.069-1.646-.069-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.241-1.246 3.608-1.308 1.266-.058 1.646-.069 4.85-.069zm0-2.163c-3.259 0-3.667.012-4.947.07-1.276.058-2.687.334-3.678 1.325-.991.991-1.267 2.402-1.325 3.678-.058 1.28-.07 1.688-.07 4.947s.012 3.667.07 4.947c.058 1.276.334 2.687 1.325 3.678.991.991 2.402 1.267 3.678 1.325 1.28.058 1.688.07 4.947.07s3.667-.012 4.947-.07c1.276-.058 2.687-.334 3.678-1.325.991-.991 1.267-2.402 1.325-3.678.058-1.28.07-1.688.07-4.947s-.012-3.667-.07-4.947c-.058-1.276-.334-2.687-1.325-3.678-.991-.991-2.402-1.267-3.678-1.325-1.28-.058-1.688-.07-4.947-.07zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
-      </svg>
-    ),
+    icon: <FaInstagram />,
   },
 ];
 
 const softSkills = [
-  'Comunicación clara y cercana',
-  'Pensamiento creativo',
-  'Empatía y escucha activa',
-  'Adaptabilidad',
-  'Trabajo en equipo',
-  'Gestión integral de contenido',
-  'Optimización visual y funcional',
+  { name: 'Comunicación clara', level: 95 },
+  { name: 'Pensamiento creativo', level: 90 },
+  { name: 'Trabajo en equipo', level: 92 },
+  { name: 'Adaptabilidad', level: 88 },
+  { name: 'Gestión de proyectos', level: 85 },
+  { name: 'Resolución de problemas', level: 90 },
+];
+
+const experience = [
+  {
+    title: 'Desarrollador Web Full Stack Freelance',
+    company: 'Botón Creativo',
+    period: '2022 - Presente',
+    description: 'Desarrollo de sitios web personalizados, catálogos online y soluciones digitales para PyMEs y emprendedores.',
+    achievements: [
+      'Más de 10 proyectos completados exitosamente',
+      'Implementación de soluciones responsive y optimizadas',
+      'Gestión integral de contenido digital',
+    ]
+  },
+  {
+    title: 'Community Manager',
+    company: 'Freelance',
+    period: '2021 - Presente',
+    description: 'Creación y gestión de contenido para redes sociales, diseño gráfico y estrategias de marketing digital.',
+    achievements: [
+      'Aumento del engagement en un 150% en clientes',
+      'Desarrollo de estrategias de contenido efectivas',
+      'Producción de contenido audiovisual',
+    ]
+  },
+];
+
+const education = [
+  {
+    degree: 'Desarrollador Full Stack',
+    institution: 'Argentina Programa / UNTREF',
+    year: '2023-2024',
+    description: 'Formación intensiva en desarrollo web con tecnologías modernas'
+  },
+  {
+    degree: 'Tester QA',
+    institution: 'En formación continua',
+    year: '2024',
+    description: 'Especialización en testing automatizado y manual'
+  },
+  {
+    degree: 'Técnico Superior en Turismo y Hotelería',
+    institution: 'Instituto Superior',
+    year: 'Completado',
+    description: 'Formación en atención al cliente y gestión de servicios'
+  },
 ];
 
 const About = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
   return (
-    <div className="about-section">
-      <div className="about-card">
-        <div className="about-header">
-          <h2 className="about-title">Desarrollador Web Full Stack Freelance</h2>
-          <span className="about-subtitle"> Community Manager | Tester QA en formación| Técnico en Turismo y Hotelería</span>
-        </div>
-        <div className="about-content">
-          <img src="/foto-hero.jpeg" alt="Imagen mia" className="about-profile-pic" />
-          <div className="about-text">
-            <p>¡Hola! Soy Maximiliano Meza, desarrollador web Full Stack argentino y creador de contenido integral en Botón Creativo, mi espacio freelance donde diseño, produzco y gestiono soluciones digitales pensadas para emprendedores y pymes.</p>
-            <p>Me dedico a crear sitios web funcionales, catálogos online y contenidos visuales que conectan con la gente. Trabajo todos los días en la producción y publicación de contenido gráfico y audiovisual, adaptado a públicos no técnicos y con foco en claridad, continuidad y presencia digital efectiva.</p>
-            <p>Uso tecnologías como HTML, CSS, JavaScript, y Bootstrap , y me apoyo en herramientas gratuitas y formatos editables para que cada entrega sea práctica, profesional y fácil de actualizar.</p>
-            <p>Además, soy Técnico Superior en Turismo y Hotelería, lo que me da una mirada más humana y empática para entender al usuario final y comunicar de forma clara.</p>
-            <p>Mi objetivo es seguir creciendo como profesional, optimizando cada entrega y ayudando a otros a mejorar su presencia online con soluciones simples, bien pensadas y hechas a medida.</p>
-            <ul className="about-softskills">
-              {softSkills.map((skill) => (
-                <li key={skill}>{skill}</li>
-              ))}
-            </ul>
+    <motion.div 
+      className="about-section"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <div className="about-container">
+        {/* Hero Section */}
+        <motion.div className="about-hero" variants={itemVariants}>
+          <div className="about-hero-content">
+            <div className="about-image-wrapper">
+              <img src="/foto-hero.jpeg" alt="Maximiliano Meza" className="about-profile-pic" />
+              <div className="about-image-decoration"></div>
+            </div>
+            <div className="about-hero-text">
+              <h1 className="about-title">Sobre Mí</h1>
+              <h2 className="about-subtitle">Desarrollador Full Stack & Creador Digital</h2>
+              <p className="about-intro">
+                Soy Maximiliano Meza, un apasionado desarrollador web argentino con más de 3 años de experiencia 
+                creando soluciones digitales innovadoras. Mi enfoque combina habilidades técnicas sólidas con 
+                una visión creativa y orientada al usuario.
+              </p>
+              <div className="about-social">
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.name}
+                    className="about-social-link"
+                  >
+                    {link.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
+        </motion.div>
+
+        {/* Main Content Grid */}
+        <div className="about-content-grid">
+          {/* Experience Section */}
+          <motion.section className="about-experience" variants={itemVariants}>
+            <h3 className="section-title">
+              <FaBriefcase className="section-icon" />
+              Experiencia Profesional
+            </h3>
+            <div className="timeline">
+              {experience.map((exp, index) => (
+                <motion.div 
+                  key={index} 
+                  className="timeline-item"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <div className="timeline-marker"></div>
+                  <div className="timeline-content">
+                    <h4>{exp.title}</h4>
+                    <h5>{exp.company}</h5>
+                    <span className="timeline-period">{exp.period}</span>
+                    <p>{exp.description}</p>
+                    <ul className="achievements">
+                      {exp.achievements.map((achievement, idx) => (
+                        <li key={idx}>{achievement}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
+          {/* Education Section */}
+          <motion.section className="about-education" variants={itemVariants}>
+            <h3 className="section-title">
+              <FaGraduationCap className="section-icon" />
+              Formación Académica
+            </h3>
+            <div className="education-grid">
+              {education.map((edu, index) => (
+                <motion.div 
+                  key={index} 
+                  className="education-card"
+                  whileHover={{ y: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <h4>{edu.degree}</h4>
+                  <h5>{edu.institution}</h5>
+                  <span className="education-year">{edu.year}</span>
+                  <p>{edu.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
         </div>
-        <div className="about-social">
-          {socialLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={link.name}
-              className="about-social-link"
-            >
-              {link.icon}
-            </a>
-          ))}
-        </div>
+
+        {/* Soft Skills Section */}
+        <motion.section className="about-skills" variants={itemVariants}>
+          <h3 className="section-title">
+            <FaHeart className="section-icon" />
+            Habilidades Blandas
+          </h3>
+          <div className="skills-grid">
+            {softSkills.map((skill, index) => (
+              <motion.div 
+                key={index} 
+                className="skill-item"
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                transition={{ duration: 1, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="skill-header">
+                  <span className="skill-name">{skill.name}</span>
+                  <span className="skill-percentage">{skill.level}%</span>
+                </div>
+                <div className="skill-bar">
+                  <motion.div 
+                    className="skill-progress"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${skill.level}%` }}
+                    transition={{ duration: 1, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* Values Section */}
+        <motion.section className="about-values" variants={itemVariants}>
+          <h3 className="section-title">Mis Valores</h3>
+          <div className="values-grid">
+            <div className="value-card">
+              <div className="value-icon">🚀</div>
+              <h4>Innovación</h4>
+              <p>Siempre buscando nuevas formas de resolver problemas y mejorar procesos.</p>
+            </div>
+            <div className="value-card">
+              <div className="value-icon">💡</div>
+              <h4>Creatividad</h4>
+              <p>Combinando diseño y funcionalidad para crear experiencias únicas.</p>
+            </div>
+            <div className="value-card">
+              <div className="value-icon">🤝</div>
+              <h4>Compromiso</h4>
+              <p>Dedicación total a cada proyecto hasta alcanzar los objetivos planteados.</p>
+            </div>
+            <div className="value-card">
+              <div className="value-icon">📚</div>
+              <h4>Aprendizaje Continuo</h4>
+              <p>Actualizándome constantemente con las últimas tecnologías y tendencias.</p>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* CTA Section */}
+        <motion.section className="about-cta" variants={itemVariants}>
+          <h3>¿Listo para trabajar juntos?</h3>
+          <p>Estoy disponible para nuevos proyectos y oportunidades laborales</p>
+          <div className="cta-buttons">
+            <a href="/contact" className="cta-btn primary">Contáctame</a>
+            <a href="/projects" className="cta-btn secondary">Ver Proyectos</a>
+          </div>
+        </motion.section>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export default About;
-
-
-

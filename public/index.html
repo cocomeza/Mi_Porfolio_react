@@ -1,17 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#667eea" />
     
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Maximiliano Meza - Desarrollador Web Full Stack en Argentina. Especializado en React, Node.js, MongoDB. Creador de soluciones digitales innovadoras para empresas y emprendedores." />
+    <meta name="keywords" content="desarrollador web, full stack developer, React, Node.js, MongoDB, freelance Argentina, diseño web, desarrollo de aplicaciones, Maximiliano Meza" />
+    <meta name="author" content="Maximiliano Meza" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Maximiliano Meza | Desarrollador Full Stack & Creador Digital" />
+    <meta property="og:description" content="Portfolio profesional de Maximiliano Meza. Desarrollo web moderno, aplicaciones full stack y soluciones digitales personalizadas." />
+    <meta property="og:image" content="%PUBLIC_URL%/foto-hero.jpeg" />
+    <meta property="og:url" content="https://maximeza-portfolio.netlify.app" />
+    <meta property="og:site_name" content="Maximiliano Meza Portfolio" />
+    <meta property="og:locale" content="es_AR" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Maximiliano Meza | Desarrollador Full Stack" />
+    <meta name="twitter:description" content="Desarrollador Web Full Stack especializado en crear experiencias digitales memorables con React, Node.js y más." />
+    <meta name="twitter:image" content="%PUBLIC_URL%/foto-hero.jpeg" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://maximeza-portfolio.netlify.app" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <title>Maximiliano Meza | Desarrollador Full Stack & Creador Digital</title>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Maximiliano Meza",
+      "jobTitle": "Desarrollador Web Full Stack",
+      "url": "https://maximeza-portfolio.netlify.app",
+      "sameAs": [
+        "https://www.linkedin.com/in/maxi-meza",
+        "https://github.com/cocomeza",
+        "https://www.instagram.com/boton.creativo.ar"
+      ],
+      "email": "boton.creativo.ar@gmail.com",
+      "telephone": "+543407532790",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Dr. Silva 530",
+        "addressLocality": "Villa Ramallo",
+        "addressRegion": "Buenos Aires",
+        "addressCountry": "AR"
+      },
+      "description": "Desarrollador Web Full Stack especializado en React, Node.js, MongoDB. Community Manager y Tester QA en formación."
+    }
+    </script>
   </head>
   <body>
-
-  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <textarea name="message"></textarea>
-  </form>
-  
-    <noscript>Necesitas activar JavaScript para correr esta aplicación.</noscript>
+    <!-- Netlify Forms -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+    
+    <noscript>Necesitas activar JavaScript para ejecutar esta aplicación.</noscript>
     <div id="root"></div>
   </body>
 </html>
