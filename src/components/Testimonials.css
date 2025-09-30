@@ -1,0 +1,236 @@
+.testimonials-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/vector-fondo-tecnologia.jpg') center/cover;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.testimonials-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+  margin-bottom: 60px;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-secondary);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-content {
+  position: relative;
+  z-index: 2;
+}
+
+.testimonial-rating {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.star {
+  font-size: 1.5rem;
+  color: #ddd;
+  transition: color 0.2s ease;
+}
+
+.star.filled {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0 0 24px 0;
+  font-style: italic;
+  color: #333;
+  text-align: center;
+  position: relative;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.author-info {
+  text-align: center;
+}
+
+.author-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0 0 4px 0;
+}
+
+.author-position {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+  margin: 0 0 2px 0;
+}
+
+.author-company {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0;
+  font-style: italic;
+}
+
+.testimonial-decoration {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  z-index: 1;
+}
+
+.quote-icon {
+  font-size: 4rem;
+  color: rgba(102, 126, 234, 0.1);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.testimonials-cta {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-text {
+  font-size: 1.3rem;
+  margin-bottom: 24px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(255, 107, 107, 0.3);
+  border: 2px solid transparent;
+}
+
+.cta-button:hover, .cta-button:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(255, 107, 107, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 60px 20px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  
+  .testimonial-card {
+    padding: 24px;
+  }
+  
+  .testimonial-text {
+    font-size: 1rem;
+  }
+  
+  .testimonials-cta {
+    padding: 32px 16px;
+  }
+  
+  .cta-text {
+    font-size: 1.1rem;
+  }
+  
+  .cta-button {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .testimonial-card {
+    padding: 20px;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+}
