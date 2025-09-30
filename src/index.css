@@ -4,17 +4,256 @@
   --color-bg-light: #f5f5f5;
   --color-white: #fff;
   --color-accent: #005582;
-  --font-main: 'Arial, sans-serif';
+  --color-success: #28a745;
+  --color-error: #dc3545;
+  --color-warning: #ffc107;
+  --color-info: #17a2b8;
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+  --border-radius: 8px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Optimizaciones de rendimiento */
+* {
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: var(--font-main), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--color-bg-light);
+  line-height: 1.6;
+  color: var(--color-secondary);
+  scroll-behavior: smooth;
+}
+
+/* Optimizaciones de accesibilidad */
+:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Mejoras de legibilidad */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+/* Optimizaciones de imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mejoras de botones */
+button, 
+input[type="button"], 
+input[type="submit"] {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Mejoras de enlaces */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+a:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Utilidades de accesibilidad */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-primary);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Animaciones optimizadas */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Estilos para dispositivos touch */
+.touch-device * {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.touch-device button,
+.touch-device a {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Estilos para movimiento reducido */
+.reduced-motion * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Estilos para contraste alto */
+.high-contrast {
+  --color-primary: #000000;
+  --color-secondary: #000000;
+  --color-accent: #000000;
+}
+
+.high-contrast * {
+  border-color: #000000 !important;
+}
+
+/* Estilos para transparencia reducida */
+.reduced-transparency * {
+  background-color: rgba(255, 255, 255, 1) !important;
+  backdrop-filter: none !important;
+}
+
+/* Estilos para datos reducidos */
+.reduced-data img {
+  content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f0f0f0"/><text x="50" y="50" text-anchor="middle" dy=".3em" font-family="Arial" font-size="12" fill="%23666">Imagen</text></svg>');
+}
+
+/* Estilos específicos para dispositivos móviles */
+.device-mobile .container {
+  padding: 0 15px;
+}
+
+.device-mobile .section-title {
+  font-size: 2rem;
+}
+
+.device-mobile .hero-title {
+  font-size: 2.2rem;
+}
+
+/* Estilos específicos para tablets */
+.device-tablet .container {
+  padding: 0 30px;
+}
+
+.device-tablet .section-title {
+  font-size: 2.2rem;
+}
+
+/* Estilos específicos para desktop */
+.device-desktop .container {
+  padding: 0 40px;
+}
+
+.device-desktop .section-title {
+  font-size: 2.5rem;
+}
+
+/* Estilos para orientación landscape en móviles */
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero-header {
+    min-height: 50vh;
+  }
+  
+  .hero-content {
+    padding: 20px 24px;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* Mejoras para pantallas muy pequeñas */
+@media (max-width: 320px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
 }
 
 code {

@@ -3,49 +3,59 @@ import "./Projects.css";
 
 const projects = [
   {
-    title: "¡Mi Primer Proyecto Completado! año 2023",
+    title: "E-commerce Responsive",
     subtitle: "HTML, CSS, Bootstrap",
-    description: "Este proyecto fue una experiencia increíble que me permitió aplicar lo aprendido en HTML, CSS y Bootstrap.",
+    description: "Sitio web de comercio electrónico completamente responsive desarrollado con HTML5, CSS3 y Bootstrap. Incluye diseño adaptativo, navegación intuitiva y optimización para dispositivos móviles.",
     image: "/primerproyecto2023.png",
-    tech: ["HTML", "CSS", "Bootstrap"],
+    tech: ["HTML5", "CSS3", "Bootstrap"],
     demo: "https://cocomeza.github.io/cocomeza-PROYECTO-INTEGRADOR-WEB-UNTREFSCHOOL.2023.actualizado/",
-    code: null
+    code: null,
+    features: ["Diseño Responsive", "Optimización SEO", "Interfaz Intuitiva"],
+    status: "Completado"
   },
   {
-    title: "¡Mi Primer Proyecto Completado! año 2024",
-    subtitle: "Node.js, MongoDB",
-    description: "Proyecto basado en Node.js y MongoDB, que incluye un sistema completo de CRUD (Crear, Leer, Actualizar y Eliminar) para gestionar recursos en una base de datos.",
+    title: "Sistema CRUD con MongoDB",
+    subtitle: "Node.js, MongoDB, Express",
+    description: "API REST completa para gestión de recursos con operaciones CRUD. Implementa autenticación, validación de datos y conexión robusta con MongoDB. Incluye documentación técnica completa.",
     image: "/primerproyecto2024.png",
-    tech: ["Node.js", "MongoDB"],
+    tech: ["Node.js", "MongoDB", "Express"],
     demo: null,
-    code: "https://github.com/cocomeza/MiProyectoCrud.actualizado"
+    code: "https://github.com/cocomeza/MiProyectoCrud.actualizado",
+    features: ["API REST", "Autenticación", "Validación de Datos"],
+    status: "Completado"
   },
   {
-    title: "¡Mi Segundo Proyecto Completado! año 2023",
+    title: "Aplicación Web Interactiva",
     subtitle: "HTML, CSS, JavaScript",
-    description: "Este proyecto fue una experiencia increíble que me permitió aplicar lo aprendido en HTML, CSS y consolidar mis conocimientos en JavaScript.",
+    description: "Aplicación web dinámica con JavaScript vanilla que implementa funcionalidades interactivas avanzadas. Incluye manipulación del DOM, eventos personalizados y animaciones CSS.",
     image: "/segundoproyecto2023.png",
-    tech: ["HTML", "CSS", "JavaScript"],
+    tech: ["HTML5", "CSS3", "JavaScript ES6+"],
     demo: "https://cocomeza.github.io/ProyectoIntegradorActualizado/",
-    code: null
+    code: null,
+    features: ["JavaScript Vanilla", "DOM Manipulation", "Animaciones CSS"],
+    status: "Completado"
   },
   {
-    title: "¡Mi Segundo Proyecto Completado! año 2024",
+    title: "API de Streaming Platform",
     subtitle: "Node.js, Express, MySQL, Sequelize",
-    description: "API que permite gestionar contenido de una plataforma de streaming. El proyecto está desarrollado con Node.js, Express, MySQL y Sequelize.",
+    description: "API completa para plataforma de streaming con gestión de contenido multimedia. Implementa relaciones complejas entre entidades, consultas optimizadas y arquitectura escalable.",
     image: "/segundoproyecto2024.png",
     tech: ["Node.js", "Express", "MySQL", "Sequelize"],
     demo: null,
-    code: "https://github.com/cocomeza/Trailerflix_API_streaming"
+    code: "https://github.com/cocomeza/Trailerflix_API_streaming",
+    features: ["Arquitectura REST", "Base de Datos Relacional", "ORM Sequelize"],
+    status: "Completado"
   },
   {
-    title: "¡Mi Tercer Proyecto Completado! año 2023",
-    subtitle: "React",
-    description: "Proyecto realizado con React.",
+    title: "Portfolio Personal React",
+    subtitle: "React, CSS Modules",
+    description: "Portfolio personal desarrollado con React que demuestra habilidades en componentes funcionales, hooks, routing y diseño moderno. Implementa mejores prácticas de desarrollo React.",
     image: "/tercerproyecto2023.png",
-    tech: ["React"],
+    tech: ["React", "React Router", "CSS Modules"],
     demo: "https://euphonious-mochi-81ead9.netlify.app/",
-    code: null
+    code: null,
+    features: ["Componentes React", "React Router", "Responsive Design"],
+    status: "Completado"
   },
 ];
 
@@ -82,35 +92,59 @@ export default function Projects() {
                   />
                 )}
                 <div className="project-info">
-                  <div className="project-tech" role="list" aria-label="Tecnologías utilizadas">
-                    {project.tech.map((tech) => (
-                      <span className="tech-badge" key={tech} role="listitem">{tech}</span>
-                    ))}
+                  <div className="project-header">
+                    <div className="project-status">{project.status}</div>
+                    <h2 id={`project-title-${idx}`} className="project-title">{project.title}</h2>
+                    <p className="project-subtitle">{project.subtitle}</p>
                   </div>
-                  <h2 id={`project-title-${idx}`} className="project-title">{project.title}</h2>
-                  <p className="project-subtitle">{project.subtitle}</p>
+                  
                   <p className="project-description">{project.description}</p>
+                  
+                  <div className="project-features">
+                    <h4>Características principales:</h4>
+                    <ul>
+                      {project.features.map((feature, featureIdx) => (
+                        <li key={featureIdx}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="project-tech" role="list" aria-label="Tecnologías utilizadas">
+                    <h4>Tecnologías:</h4>
+                    <div className="tech-badges">
+                      {project.tech.map((tech) => (
+                        <span className="tech-badge" key={tech} role="listitem">{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+
                   <div className="project-actions" role="group" aria-label="Acciones del proyecto">
                     {project.demo && (
                       <a 
                         href={project.demo} 
-                        className="project-btn" 
+                        className="project-btn primary" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         aria-label={`Ver demo del proyecto ${project.title}`}
                       >
-                        Demo
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        Ver Demo
                       </a>
                     )}
                     {project.code && (
                       <a 
                         href={project.code} 
-                        className="project-btn code" 
+                        className="project-btn secondary" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         aria-label={`Ver código del proyecto ${project.title}`}
                       >
-                        Código
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                        </svg>
+                        Ver Código
                       </a>
                     )}
                   </div>
