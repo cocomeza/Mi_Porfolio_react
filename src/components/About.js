@@ -42,44 +42,140 @@ const softSkills = [
 ];
 
 const About = () => {
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const aboutSection = document.querySelector('.about-section');
+    if (aboutSection) {
+      observer.observe(aboutSection);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="about-section">
-      <div className="about-card">
+    <section className={`about-section ${isVisible ? 'visible' : ''}`} id="about">
+      <div className="container">
         <div className="about-header">
-          <h2 className="about-title">Desarrollador Web Full Stack Freelance</h2>
-          <span className="about-subtitle"> Community Manager | Tester QA en formación| Técnico en Turismo y Hotelería</span>
+          <h1 className="section-title">Sobre Mí</h1>
+          <p className="about-intro">
+            Conoce más sobre mi trayectoria, experiencia y pasión por el desarrollo web
+          </p>
         </div>
+
         <div className="about-content">
-          <img src="/foto-hero.jpeg" alt="Imagen mia" className="about-profile-pic" />
-          <div className="about-text">
-            <p>¡Hola! Soy Maximiliano Meza, desarrollador web Full Stack argentino y creador de contenido integral en Botón Creativo, mi espacio freelance donde diseño, produzco y gestiono soluciones digitales pensadas para emprendedores y pymes.</p>
-            <p>Me dedico a crear sitios web funcionales, catálogos online y contenidos visuales que conectan con la gente. Trabajo todos los días en la producción y publicación de contenido gráfico y audiovisual, adaptado a públicos no técnicos y con foco en claridad, continuidad y presencia digital efectiva.</p>
-            <p>Uso tecnologías como HTML, CSS, JavaScript, y Bootstrap , y me apoyo en herramientas gratuitas y formatos editables para que cada entrega sea práctica, profesional y fácil de actualizar.</p>
-            <p>Además, soy Técnico Superior en Turismo y Hotelería, lo que me da una mirada más humana y empática para entender al usuario final y comunicar de forma clara.</p>
-            <p>Mi objetivo es seguir creciendo como profesional, optimizando cada entrega y ayudando a otros a mejorar su presencia online con soluciones simples, bien pensadas y hechas a medida.</p>
-            <ul className="about-softskills">
-              {softSkills.map((skill) => (
-                <li key={skill}>{skill}</li>
+          <div className="about-profile">
+            <div className="profile-image-container">
+              <img src="/foto-hero.jpeg" alt="Maximiliano Meza" className="about-profile-pic" />
+              <div className="profile-badge">
+                <span className="badge-text">Full Stack Developer</span>
+              </div>
+            </div>
+            
+            <div className="profile-info">
+              <h2 className="profile-name">Maximiliano Meza</h2>
+              <p className="profile-roles">
+                Desarrollador Web Full Stack • Community Manager • Tester QA en formación • Técnico en Turismo y Hotelería
+              </p>
+              
+              <div className="profile-stats">
+                <div className="stat">
+                  <span className="stat-number">2+</span>
+                  <span className="stat-label">Años de Experiencia</span>
+                </div>
+                <div className="stat">
+                  <span className="stat-number">5+</span>
+                  <span className="stat-label">Proyectos Completados</span>
+                </div>
+                <div className="stat">
+                  <span className="stat-number">100%</span>
+                  <span className="stat-label">Clientes Satisfechos</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="about-story">
+            <div className="story-section">
+              <h3 className="story-title">Mi Historia</h3>
+              <p>
+                ¡Hola! Soy Maximiliano Meza, desarrollador web Full Stack argentino y creador de contenido integral en 
+                <strong> Botón Creativo</strong>, mi espacio freelance donde diseño, produzco y gestiono soluciones 
+                digitales pensadas para emprendedores y pymes.
+              </p>
+              <p>
+                Me dedico a crear sitios web funcionales, catálogos online y contenidos visuales que conectan con la gente. 
+                Trabajo todos los días en la producción y publicación de contenido gráfico y audiovisual, adaptado a públicos 
+                no técnicos y con foco en claridad, continuidad y presencia digital efectiva.
+              </p>
+            </div>
+
+            <div className="story-section">
+              <h3 className="story-title">Mi Enfoque</h3>
+              <p>
+                Uso tecnologías como HTML, CSS, JavaScript, React y Node.js, y me apoyo en herramientas modernas y 
+                formatos editables para que cada entrega sea práctica, profesional y fácil de actualizar.
+              </p>
+              <p>
+                Además, soy Técnico Superior en Turismo y Hotelería, lo que me da una mirada más humana y empática 
+                para entender al usuario final y comunicar de forma clara.
+              </p>
+            </div>
+
+            <div className="story-section">
+              <h3 className="story-title">Mi Objetivo</h3>
+              <p>
+                Mi objetivo es seguir creciendo como profesional, optimizando cada entrega y ayudando a otros a mejorar 
+                su presencia online con soluciones simples, bien pensadas y hechas a medida.
+              </p>
+            </div>
+          </div>
+
+          <div className="about-skills-soft">
+            <h3 className="skills-title">Habilidades Blandas</h3>
+            <div className="soft-skills-grid">
+              {softSkills.map((skill, index) => (
+                <div key={skill} className="soft-skill-item" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div className="skill-icon">✨</div>
+                  <span className="skill-text">{skill}</span>
+                </div>
               ))}
-            </ul>
+            </div>
+          </div>
+
+          <div className="about-social-section">
+            <h3 className="social-title">Conecta Conmigo</h3>
+            <p className="social-description">
+              Sígueme en mis redes sociales para ver mis últimos proyectos y contenido
+            </p>
+            <div className="about-social">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Seguir en ${link.name}`}
+                  className="about-social-link"
+                >
+                  <div className="social-icon">{link.icon}</div>
+                  <span className="social-name">{link.name}</span>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="about-social">
-          {socialLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={link.name}
-              className="about-social-link"
-            >
-              {link.icon}
-            </a>
-          ))}
-        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
