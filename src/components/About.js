@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './About.css';
 
 const socialLinks = [
@@ -42,16 +42,45 @@ const softSkills = [
 ];
 
 const About = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="about-section">
-      <div className="about-card">
+    <div className="about-section" ref={sectionRef}>
+      <div className={`about-card ${isVisible ? 'animate-fadeInUp' : ''}`}>
         <div className="about-header">
-          <h2 className="about-title">Desarrollador Web Full Stack Freelance</h2>
-          <span className="about-subtitle"> Community Manager | Tester QA en formación| Técnico en Turismo y Hotelería</span>
+          <h2 className={`about-title ${isVisible ? 'animate-fadeInUp' : ''}`} style={{ animationDelay: '0.2s' }}>
+            Desarrollador Web Full Stack Freelance
+          </h2>
+          <span className={`about-subtitle ${isVisible ? 'animate-fadeInUp' : ''}`} style={{ animationDelay: '0.3s' }}>
+            Community Manager | Tester QA en formación| Técnico en Turismo y Hotelería
+          </span>
         </div>
         <div className="about-content">
-          <img src="/foto-hero.jpeg" alt="Imagen mia" className="about-profile-pic" />
-          <div className="about-text">
+          <img 
+            src="/foto-hero.jpeg" 
+            alt="Imagen mia" 
+            className={`about-profile-pic ${isVisible ? 'animate-fadeInLeft' : ''}`}
+            style={{ animationDelay: '0.4s' }}
+          />
+          <div className={`about-text ${isVisible ? 'animate-fadeInRight' : ''}`} style={{ animationDelay: '0.5s' }}>
             <p>¡Hola! Soy Maximiliano Meza, desarrollador web Full Stack argentino y creador de contenido integral en Botón Creativo, mi espacio freelance donde diseño, produzco y gestiono soluciones digitales pensadas para emprendedores y pymes.</p>
             <p>Me dedico a crear sitios web funcionales, catálogos online y contenidos visuales que conectan con la gente. Trabajo todos los días en la producción y publicación de contenido gráfico y audiovisual, adaptado a públicos no técnicos y con foco en claridad, continuidad y presencia digital efectiva.</p>
             <p>Uso tecnologías como HTML, CSS, JavaScript, y Bootstrap , y me apoyo en herramientas gratuitas y formatos editables para que cada entrega sea práctica, profesional y fácil de actualizar.</p>
@@ -64,15 +93,16 @@ const About = () => {
             </ul>
           </div>
         </div>
-        <div className="about-social">
-          {socialLinks.map((link) => (
+        <div className={`about-social ${isVisible ? 'animate-fadeInUp' : ''}`} style={{ animationDelay: '0.7s' }}>
+          {socialLinks.map((link, idx) => (
             <a
               key={link.name}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={link.name}
-              className="about-social-link"
+              className={`about-social-link ${isVisible ? 'animate-fadeInUp' : ''}`}
+              style={{ animationDelay: `${0.8 + idx * 0.1}s` }}
             >
               {link.icon}
             </a>

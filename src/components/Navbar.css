@@ -1,11 +1,14 @@
 .navbar {
-  background-color: var(--color-secondary);
-  color: var(--color-white);
-  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-gray-200);
+  color: var(--color-secondary);
+  padding: var(--spacing-md) var(--spacing-lg);
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
 }
 
 .container {
@@ -19,14 +22,18 @@
 
 .title {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 700;
   text-decoration: none;
-  color: #fff;
-  transition: color 0.3s ease;
+  color: var(--color-secondary);
+  transition: all var(--transition-normal);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .title:hover {
-  color: var(--color-primary);
+  transform: scale(1.05);
 }
 
 .nav-links {
@@ -37,33 +44,37 @@
 
 .nav-link {
   text-decoration: none;
-  color: #fff;
+  color: var(--color-gray-600);
   font-size: 1rem;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  font-weight: 500;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
   position: relative;
 }
 
 .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
   color: var(--color-primary);
+  background-color: var(--color-gray-100);
+  transform: translateY(-2px);
 }
 
 .nav-link.active {
-  background-color: var(--color-primary);
   color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  box-shadow: var(--shadow-md);
 }
 
 .nav-link.active::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -4px;
   left: 50%;
   transform: translateX(-50%);
-  width: 20px;
-  height: 2px;
-  background-color: var(--color-primary);
+  width: 24px;
+  height: 3px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  border-radius: var(--radius-sm);
 }
 
 .cta-button {
@@ -111,10 +122,10 @@
 .hamburger span {
   width: 25px;
   height: 3px;
-  background-color: var(--color-white);
+  background-color: var(--color-secondary);
   margin: 3px 0;
-  transition: 0.3s;
-  border-radius: 2px;
+  transition: var(--transition-normal);
+  border-radius: var(--radius-sm);
 }
 
 .hamburger.active span:nth-child(1) {
@@ -139,15 +150,17 @@
     position: fixed;
     top: 0;
     right: -100%;
-    width: 250px;
+    width: 280px;
     height: 100vh;
-    background-color: var(--color-secondary);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 80px 20px 20px;
-    transition: right 0.3s ease;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    padding: 80px var(--spacing-lg) var(--spacing-lg);
+    transition: right var(--transition-slow);
+    box-shadow: var(--shadow-xl);
+    border-left: 1px solid var(--color-gray-200);
   }
 
   .nav-links.active {
@@ -156,9 +169,10 @@
 
   .nav-link {
     width: 100%;
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--color-gray-200);
     font-size: 1.1rem;
+    color: var(--color-secondary);
   }
 
   .nav-link:last-child {
