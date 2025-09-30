@@ -1,8 +1,9 @@
 .projects-section {
   background-color: var(--color-bg-light);
-  color: var(--color-secondary);
-  padding: 60px 20px;
+  color: var(--color-text);
+  padding: 80px 20px;
   font-family: var(--font-main);
+  min-height: 100vh;
 }
 
 .container {
@@ -207,6 +208,154 @@
   }
 }
 
+/* Filter Styles */
+.project-filters {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.filter-icon {
+  color: var(--color-primary);
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border: 2px solid var(--color-border);
+  background: var(--color-card);
+  color: var(--color-text);
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.filter-btn.active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.filter-emoji {
+  font-size: 1.2rem;
+}
+
+.filter-count {
+  background: white;
+  color: var(--color-primary);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+/* Featured Badge */
+.featured-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+}
+
+/* Project Image Container */
+.project-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+
+.project-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Project Hover Info */
+.project-hover-info {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+  pointer-events: none;
+}
+
+/* No Projects Message */
+.no-projects {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--color-text);
+  opacity: 0.6;
+  font-size: 1.2rem;
+}
+
+/* Enhanced Project Buttons */
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-btn.demo {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+}
+
+.project-btn.code {
+  background: linear-gradient(135deg, #333 0%, #555 100%);
+}
+
+/* Featured Project Highlight */
+.project-item.featured {
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 8px 32px rgba(0, 123, 177, 0.15);
+}
+
 @media (max-width: 600px) {
   .section-title {
     font-size: 1.8rem;
@@ -231,5 +380,15 @@
   
   .project-btn {
     width: 100%;
+    justify-content: center;
+  }
+
+  .filter-buttons {
+    gap: 10px;
+  }
+
+  .filter-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
   }
 }

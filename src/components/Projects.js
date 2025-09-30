@@ -1,124 +1,272 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt, FaFilter } from "react-icons/fa";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import "./Projects.css"; 
 
 const projects = [
   {
-    title: "¡Mi Primer Proyecto Completado! año 2023",
-    subtitle: "HTML, CSS, Bootstrap",
-    description: "Este proyecto fue una experiencia increíble que me permitió aplicar lo aprendido en HTML, CSS y Bootstrap.",
+    id: 1,
+    title: "Mi Primer Proyecto - 2023",
+    subtitle: "Proyecto Web Escolar",
+    description: "Experiencia increíble aplicando HTML, CSS y Bootstrap. Un proyecto educativo que marcó el inicio de mi carrera como desarrollador.",
     image: "/primerproyecto2023.png",
     tech: ["HTML", "CSS", "Bootstrap"],
+    category: "frontend",
+    year: 2023,
     demo: "https://cocomeza.github.io/cocomeza-PROYECTO-INTEGRADOR-WEB-UNTREFSCHOOL.2023.actualizado/",
-    code: null
+    code: null,
+    featured: false
   },
   {
-    title: "¡Mi Primer Proyecto Completado! año 2024",
-    subtitle: "Node.js, MongoDB",
-    description: "Proyecto basado en Node.js y MongoDB, que incluye un sistema completo de CRUD (Crear, Leer, Actualizar y Eliminar) para gestionar recursos en una base de datos.",
+    id: 2,
+    title: "Sistema CRUD con Node.js",
+    subtitle: "Gestión de Base de Datos",
+    description: "Sistema completo de CRUD (Crear, Leer, Actualizar y Eliminar) para gestionar recursos en MongoDB. Backend robusto con validaciones y manejo de errores.",
     image: "/primerproyecto2024.png",
-    tech: ["Node.js", "MongoDB"],
+    tech: ["Node.js", "MongoDB", "Express"],
+    category: "fullstack",
+    year: 2024,
     demo: null,
-    code: "https://github.com/cocomeza/MiProyectoCrud.actualizado"
+    code: "https://github.com/cocomeza/MiProyectoCrud.actualizado",
+    featured: true
   },
   {
-    title: "¡Mi Segundo Proyecto Completado! año 2023",
-    subtitle: "HTML, CSS, JavaScript",
-    description: "Este proyecto fue una experiencia increíble que me permitió aplicar lo aprendido en HTML, CSS y consolidar mis conocimientos en JavaScript.",
+    id: 3,
+    title: "Proyecto Interactivo JavaScript",
+    subtitle: "Aplicación Web Dinámica",
+    description: "Consolidación de conocimientos en JavaScript creando una experiencia interactiva y responsiva con manipulación del DOM.",
     image: "/segundoproyecto2023.png",
     tech: ["HTML", "CSS", "JavaScript"],
+    category: "frontend",
+    year: 2023,
     demo: "https://cocomeza.github.io/ProyectoIntegradorActualizado/",
-    code: null
+    code: null,
+    featured: false
   },
   {
-    title: "¡Mi Segundo Proyecto Completado! año 2024",
-    subtitle: "Node.js, Express, MySQL, Sequelize",
-    description: "API que permite gestionar contenido de una plataforma de streaming. El proyecto está desarrollado con Node.js, Express, MySQL y Sequelize.",
+    id: 4,
+    title: "API de Streaming",
+    subtitle: "Backend Profesional",
+    description: "API REST completa para gestionar contenido de streaming. Arquitectura escalable con Node.js, Express, MySQL y Sequelize ORM.",
     image: "/segundoproyecto2024.png",
     tech: ["Node.js", "Express", "MySQL", "Sequelize"],
+    category: "backend",
+    year: 2024,
     demo: null,
-    code: "https://github.com/cocomeza/Trailerflix_API_streaming"
+    code: "https://github.com/cocomeza/Trailerflix_API_streaming",
+    featured: true
   },
   {
-    title: "¡Mi Tercer Proyecto Completado! año 2023",
-    subtitle: "React",
-    description: "Proyecto realizado con React.",
+    id: 5,
+    title: "Aplicación React",
+    subtitle: "SPA Moderna",
+    description: "Single Page Application desarrollada con React, implementando componentes reutilizables y gestión de estado.",
     image: "/tercerproyecto2023.png",
-    tech: ["React"],
+    tech: ["React", "JavaScript", "CSS"],
+    category: "frontend",
+    year: 2023,
     demo: "https://euphonious-mochi-81ead9.netlify.app/",
-    code: null
+    code: null,
+    featured: true
   },
 ];
 
+const categories = [
+  { id: "all", name: "Todos", icon: "🚀" },
+  { id: "frontend", name: "Frontend", icon: "🎨" },
+  { id: "backend", name: "Backend", icon: "⚙️" },
+  { id: "fullstack", name: "Full Stack", icon: "💻" }
+];
+
 export default function Projects() {
-  const handleImageError = (e) => {
-    e.target.style.display = 'none';
-    const projectInfo = e.target.parentElement.querySelector('.project-info');
-    if (projectInfo) {
-      projectInfo.style.paddingTop = '20px';
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [hoveredProject, setHoveredProject] = useState(null);
+
+  const filteredProjects = selectedCategory === "all" 
+    ? projects 
+    : projects.filter(p => p.category === selectedCategory);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
     }
   };
 
   return (
     <section id="projects" className="projects-section" aria-labelledby="projects-title">
       <div className="container">
-        <h1 id="projects-title" className="section-title">Mis Proyectos</h1>
-        <div className="projects-grid" role="list" aria-label="Lista de proyectos">
-          {projects.map((project, idx) => (
-            <article 
-              className="project-item" 
-              key={`${project.title}-${idx}`} 
-              tabIndex={0} 
-              role="listitem"
-              aria-labelledby={`project-title-${idx}`}
-            >
-              <div className="project-content">
-                {project.image && (
-                  <img 
-                    src={project.image} 
-                    alt={`Captura de pantalla del proyecto: ${project.title}`} 
-                    className="project-image"
-                    onError={handleImageError}
-                    loading="lazy"
-                  />
+        <motion.h1 
+          id="projects-title" 
+          className="section-title"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Mis Proyectos
+        </motion.h1>
+
+        {/* Category Filter */}
+        <motion.div 
+          className="project-filters"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <div className="filter-header">
+            <FaFilter className="filter-icon" />
+            <span>Filtrar por categoría:</span>
+          </div>
+          <div className="filter-buttons">
+            {categories.map((cat) => (
+              <motion.button
+                key={cat.id}
+                className={`filter-btn ${selectedCategory === cat.id ? 'active' : ''}`}
+                onClick={() => setSelectedCategory(cat.id)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="filter-emoji">{cat.icon}</span>
+                {cat.name}
+                {selectedCategory === cat.id && (
+                  <motion.span 
+                    className="filter-count"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 500 }}
+                  >
+                    {filteredProjects.length}
+                  </motion.span>
                 )}
+              </motion.button>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Projects Grid */}
+        <AnimatePresence mode="wait">
+          <motion.div 
+            className="projects-grid"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            key={selectedCategory}
+          >
+            {filteredProjects.map((project) => (
+              <motion.article 
+                className={`project-item ${project.featured ? 'featured' : ''}`}
+                key={project.id}
+                variants={itemVariants}
+                layout
+                onMouseEnter={() => setHoveredProject(project.id)}
+                onMouseLeave={() => setHoveredProject(null)}
+                whileHover={{ y: -10 }}
+              >
+                {project.featured && (
+                  <div className="featured-badge">
+                    <span>⭐ Destacado</span>
+                  </div>
+                )}
+                
+                <div className="project-image-container">
+                  <LazyLoadImage
+                    src={project.image}
+                    alt={`Captura de ${project.title}`}
+                    effect="blur"
+                    className="project-image"
+                    placeholderSrc="/placeholder.jpg"
+                  />
+                  <div className="project-overlay">
+                    <span className="project-year">{project.year}</span>
+                  </div>
+                </div>
+
                 <div className="project-info">
-                  <div className="project-tech" role="list" aria-label="Tecnologías utilizadas">
+                  <div className="project-tech">
                     {project.tech.map((tech) => (
-                      <span className="tech-badge" key={tech} role="listitem">{tech}</span>
+                      <motion.span 
+                        className="tech-badge" 
+                        key={tech}
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        {tech}
+                      </motion.span>
                     ))}
                   </div>
-                  <h2 id={`project-title-${idx}`} className="project-title">{project.title}</h2>
+
+                  <h2 className="project-title">{project.title}</h2>
                   <p className="project-subtitle">{project.subtitle}</p>
                   <p className="project-description">{project.description}</p>
-                  <div className="project-actions" role="group" aria-label="Acciones del proyecto">
+
+                  <div className="project-actions">
                     {project.demo && (
-                      <a 
+                      <motion.a 
                         href={project.demo} 
-                        className="project-btn" 
+                        className="project-btn demo"
                         target="_blank" 
                         rel="noopener noreferrer"
-                        aria-label={`Ver demo del proyecto ${project.title}`}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                       >
-                        Demo
-                      </a>
+                        <FaExternalLinkAlt /> Demo
+                      </motion.a>
                     )}
                     {project.code && (
-                      <a 
+                      <motion.a 
                         href={project.code} 
-                        className="project-btn code" 
+                        className="project-btn code"
                         target="_blank" 
                         rel="noopener noreferrer"
-                        aria-label={`Ver código del proyecto ${project.title}`}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                       >
-                        Código
-                      </a>
+                        <FaGithub /> Código
+                      </motion.a>
                     )}
                   </div>
                 </div>
-              </div>
-            </article>
-          ))}
-        </div>
+
+                {hoveredProject === project.id && (
+                  <motion.div 
+                    className="project-hover-info"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                  >
+                    <span className="hover-category">{project.category}</span>
+                  </motion.div>
+                )}
+              </motion.article>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+
+        {filteredProjects.length === 0 && (
+          <motion.div 
+            className="no-projects"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <p>No hay proyectos en esta categoría todavía.</p>
+          </motion.div>
+        )}
       </div>
     </section>
   );

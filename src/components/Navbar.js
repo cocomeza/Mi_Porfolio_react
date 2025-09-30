@@ -53,6 +53,14 @@ export default function Navbar() {
             Sobre Mí
           </Link>
           <Link 
+            to="/services" 
+            className={`nav-link ${isActive('/services') ? 'active' : ''}`}
+            onClick={closeMenu}
+            aria-current={isActive('/services') ? 'page' : undefined}
+          >
+            Servicios
+          </Link>
+          <Link 
             to="/projects" 
             className={`nav-link ${isActive('/projects') ? 'active' : ''}`}
             onClick={closeMenu}
@@ -61,20 +69,20 @@ export default function Navbar() {
             Proyectos
           </Link>
           <Link 
-            to="/freelance" 
-            className={`nav-link ${isActive('/freelance') ? 'active' : ''}`}
-            onClick={closeMenu}
-            aria-current={isActive('/freelance') ? 'page' : undefined}
-          >
-            Freelance
-          </Link>
-          <Link 
             to="/skills" 
             className={`nav-link ${isActive('/skills') ? 'active' : ''}`}
             onClick={closeMenu}
             aria-current={isActive('/skills') ? 'page' : undefined}
           >
             Habilidades
+          </Link>
+          <Link 
+            to="/testimonials" 
+            className={`nav-link ${isActive('/testimonials') ? 'active' : ''}`}
+            onClick={closeMenu}
+            aria-current={isActive('/testimonials') ? 'page' : undefined}
+          >
+            Testimonios
           </Link>
           <Link 
             to="/contact" 
