@@ -77,6 +77,14 @@ export default function Navbar() {
             Habilidades
           </Link>
           <Link 
+            to="/testimonials" 
+            className={`nav-link ${isActive('/testimonials') ? 'active' : ''}`}
+            onClick={closeMenu}
+            aria-current={isActive('/testimonials') ? 'page' : undefined}
+          >
+            Testimonios
+          </Link>
+          <Link 
             to="/contact" 
             className={`nav-link ${isActive('/contact') ? 'active' : ''}`}
             onClick={closeMenu}
