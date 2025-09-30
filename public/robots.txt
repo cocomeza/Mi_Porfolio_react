@@ -1,3 +1,7 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
+Allow: /
+
+# Sitemap
+Sitemap: https://maximeza-portfolio.netlify.app/sitemap.xml
